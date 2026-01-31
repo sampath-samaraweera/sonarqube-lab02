@@ -2,6 +2,7 @@ package main.java.com.example;
 
 import java.sql.SQLException;
 import java.util.logging.Logger;
+import java.util.logging.Level;
 
 public class App {
     private static final Logger LOGGER = Logger.getLogger(App.class.getName());
@@ -9,7 +10,9 @@ public class App {
     public static void main(String[] args) {
         Calculator calc = new Calculator();
 
-        LOGGER.info(String.valueOf(calc.calculate(10, 5, "add-again")));
+        if (LOGGER.isLoggable(Level.INFO)) {
+            LOGGER.info(String.valueOf(calc.calculate(10, 5, "add-again")));
+        }
         
         UserService service = new UserService();
         try {
